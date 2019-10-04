@@ -15,6 +15,8 @@ class OfficialOverview {
     var id: String? = null
         private set
 
+    // "Test FirstName", "Test MiddleName", "Test Lastname", "Test Party", "Test State", "Test DisplayName", "Test id"
+
     constructor(firstName: String, middleName: String, lastName: String, party: String, state: String, id: String) {
         this.firstName = firstName
         this.middleName = middleName

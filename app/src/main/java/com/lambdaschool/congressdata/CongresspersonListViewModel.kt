@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 
 import java.util.ArrayList
-
+//
 class CongresspersonListViewModel : ViewModel() {
     var overviewList: LiveData<ArrayList<OfficialOverview>>? = null
     get() {

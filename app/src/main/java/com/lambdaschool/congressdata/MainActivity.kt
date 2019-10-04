@@ -1,14 +1,14 @@
 package com.lambdaschool.congressdata
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.TypedValue
 import android.widget.TextView
 
@@ -37,8 +37,8 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    private var layoutList: RecyclerView? = null
-    private var layoutManager: RecyclerView.LayoutManager? = null
+    private var layoutList: androidx.recyclerview.widget.RecyclerView? = null
+    private var layoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager? = null
     private var listAdapter: OverviewListAdapter? = null
 
     private var context: Context? = null
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         context = this
         layoutList = findViewById(R.id.layout_list)
         layoutList!!.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(context)
+        layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         layoutList!!.layoutManager = layoutManager
 
 

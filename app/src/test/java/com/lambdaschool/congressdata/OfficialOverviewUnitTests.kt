@@ -7,9 +7,10 @@ import org.mockito.Mockito
 import org.mockito.Mockito.mock
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldEqual
+import org.amshove.kluent.shouldNotEqual
 
 class OfficialOverviewUnitTests {
-    val tested = OfficialOverview("Test FirstName", "Test MiddleName", "Test Lastname", "Test Party", "Test State", "Test id")
+    val tested = OfficialOverview("Test FirstName", "Test MiddleName", "Test LastName", "Test Party", "Test State", "Test ID")
 
 
     @Test
@@ -17,7 +18,7 @@ class OfficialOverviewUnitTests {
 
         tested.party shouldEqual "Test Party"
 
-        tested.id shouldEqual "Test id"
+        tested.id shouldEqual "Test ID"
 
         tested.state shouldEqual "Test State"
 
@@ -25,6 +26,7 @@ class OfficialOverviewUnitTests {
 
    @Test
     fun testDisplayName(){
-        tested.displayName shouldEqual "test firstnametest middleName test lastname"
+
+        tested.displayName shouldEqual  "Test FirstName " + "Test MiddleName " + "Test LastName"
     }
 }

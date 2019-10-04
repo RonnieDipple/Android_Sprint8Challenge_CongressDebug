@@ -22,4 +22,9 @@ class OfficialOverviewUnitTests {
         tested.state shouldEqual "Test State"
 
     }
+
+   @Test
+    fun testDisplayName(){
+        tested.displayName shouldEqual "test firstnametest middleName test lastname"
+    }
 }

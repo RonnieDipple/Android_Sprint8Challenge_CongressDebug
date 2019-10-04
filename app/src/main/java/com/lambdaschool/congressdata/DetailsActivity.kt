@@ -70,7 +70,8 @@ class DetailsActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.id = memberId
+        //Changed
+        viewModel.id = memberId ?: "-1"
 
         viewModel.profile?.observe(this, Observer<CongresspersonProfile> { profile ->
             runOnUiThread {

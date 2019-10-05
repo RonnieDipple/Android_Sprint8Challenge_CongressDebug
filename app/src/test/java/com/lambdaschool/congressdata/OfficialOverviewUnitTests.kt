@@ -8,6 +8,10 @@ import kotlin.test.assertFails
 import kotlin.test.assertFailsWith
 
 class OfficialOverviewUnitTests {
+
+    companion object{
+        const val ID = ""
+    }
     val testCorrect = OfficialOverview("Test FirstName", "Test MiddleName", "Test LastName", "Test Party", "Test State", "Test ID")
     val testFail = OfficialOverview("", "", "", "T", "", "")
 

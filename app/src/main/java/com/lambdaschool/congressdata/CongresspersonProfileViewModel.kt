@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 
 class CongresspersonProfileViewModel() : ViewModel() {
-    var id = ""
+    var id: String? = null
     var profile: LiveData<CongresspersonProfile>? = null
     get() {
         return if (field == null) {

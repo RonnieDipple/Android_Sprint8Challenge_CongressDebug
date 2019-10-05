@@ -18,14 +18,32 @@ import org.junit.runners.MethodSorters
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class TestingUI {
 
+
+
     @Rule
     @JvmField
     var activityScenarioRule = ActivityScenarioRule(DetailsActivity::class.java)
 
     @Test
-    fun iHatePolitcians(){
-        val name = "Trent P, Kelly"
+    fun iHatePoliticians(){
 
+
+        val name = "Trent P. Kelly"
+        val party = "Republican"
+        val district = "Mississippi - District 10"
+        val twitter = "Twitter"
+        val facebook = "Facebook"
+        val map = "1721 Longworth House Office Building"
+        val phone = "202-225-4306"
         onView(withId(R.id.profile_name)).check(matches(withText(name)))
+        onView(withId(R.id.profile_party)).check(matches(withText(party)))
+        onView(withId(R.id.profile_district)).check(matches(withText(district)))
+        onView(withId(R.id.profile_twitter)).check(matches(withText(twitter)))
+        onView(withId(R.id.profile_facebook)).check(matches(withText(facebook)))
+        onView(withId(R.id.profile_map)).check(matches(withText(map)))
+        onView(withId(R.id.profile_phone)).check(matches(withText(phone)))
+
+
+        //onView(withId(R.id.profile_name)).check(matches(withText(name)))
     }
 }

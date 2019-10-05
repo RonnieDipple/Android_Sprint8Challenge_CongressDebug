@@ -18,11 +18,12 @@ import android.widget.TextView
 import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
+import kotlinx.android.synthetic.main.activity_details_view.*
 
 
 class DetailsActivity : AppCompatActivity() {
 
-    private var context: Context? = null
+
 
     private var profileImage: ImageView? = null
     private var profileName: TextView? = null
@@ -36,39 +37,38 @@ class DetailsActivity : AppCompatActivity() {
     private var profileCommitteeList: LinearLayout? = null
     private var profileSubcommitteeList: LinearLayout? = null
 
-    private var activity: Activity? = null
 
-    private var memberId: String? = null
+   private lateinit var memberId: String
 
     private lateinit var viewModel: CongresspersonProfileViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        activity = this
-        themeUtils.onActivityCreateSetTheme(activity!!)
+
+        themeUtils.onActivityCreateSetTheme(this)
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_details_view)
-        context = this
+
 
         val intent = intent
         memberId = intent.getStringExtra("id")
 
         viewModel = ViewModelProviders.of(this).get(CongresspersonProfileViewModel::class.java)
 
-        profileImage = findViewById(R.id.profile_image)
-        profileName = findViewById(R.id.profile_name)
-        profileParty = findViewById(R.id.profile_party)
-        profileDistrict = findViewById(R.id.profile_district)
-        profileTwitter = findViewById(R.id.profile_twitter)
-        profileFacebook = findViewById(R.id.profile_facebook)
-        profileMap = findViewById(R.id.profile_map)
-        profilePhone = findViewById(R.id.profile_phone)
-        profileVotingBar = findViewById(R.id.profile_voting_bar)
-        profileCommitteeList = findViewById(R.id.profile_committee_list)
-        profileSubcommitteeList = findViewById(R.id.profile_subcommittee_list)
+        profileImage = profile_image
+        profileName = profile_name
+        profileParty = profile_party
+        profileDistrict = profile_district
+        profileTwitter = profile_twitter
+        profileFacebook = profile_facebook
+        profileMap = profile_map
+        profilePhone = profile_phone
+        profileVotingBar = profile_voting_bar
+        profileCommitteeList = profile_committee_list
+        profileSubcommitteeList = profile_subcommittee_list
 
 
-        (findViewById<View>(R.id.profile_name) as TextView).setOnClickListener { themeUtils.nextTheme(activity!!) }
+        (findViewById<View>(R.id.profile_name) as TextView).setOnClickListener { themeUtils.nextTheme(this) }
     }
 
     override fun onStart() {
@@ -114,6 +114,7 @@ class DetailsActivity : AppCompatActivity() {
             profileMap!!.setOnClickListener {
                 if (profile.office != "null") {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/search/" + profile.office)))
+
                 }
             }
 
@@ -123,7 +124,7 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun getDefaultTextView(text: String): TextView {
-        val dataView = TextView(context)
+        val dataView = TextView(this)
         dataView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
         dataView.setPadding(5, 5, 5, 5)
         dataView.text = text

@@ -1,38 +1,18 @@
 package com.lambdaschool.congressdata
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.TypedValue
 import android.widget.TextView
 
 
-/*public class MainActivity extends LifecycleActivity  {
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ListView listView = (ListView) findViewById(R.id.list);
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.VISIBLE);
-        MainActivityViewModel model = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        model.getFruitList().observe(this, fruitlist -> {
-            // update UI
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_list_item_1, android.R.id.text1, fruitlist);
-            // Assign adapter to ListView
-            listView.setAdapter(adapter);
-            progressBar.setVisibility(View.GONE);
-        });
-    }
-}*/
 
 
 class MainActivity : AppCompatActivity() {
@@ -59,10 +39,10 @@ class MainActivity : AppCompatActivity() {
         layoutList!!.layoutManager = layoutManager
 
 
-        viewModel = ViewModelProviders.of(this).get(CongresspersonListViewModel::class.java!!)
+        viewModel = ViewModelProviders.of(this).get(CongresspersonListViewModel::class.java)
 
         viewModel.overviewList?.observe(this, Observer { overviewList ->
-            runOnUiThread {
+
                 assert(overviewList != null)
 
                 // using recycler view
@@ -75,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 scrollData.addView(getDefaultTextView(officialOverview.getDisplayName(),
                                                       officialOverview.getId()));
             }*/
-            }
+
         })
     }
 

@@ -1,6 +1,8 @@
 package com.lambdaschool.congressdata
 
 import com.lambdaschool.congressdataapiaccess.CongresspersonOverview
+import java.lang.IllegalArgumentException
+
 
 class OfficialOverview {
     private var firstName: String? = null
@@ -14,6 +16,8 @@ class OfficialOverview {
         private set
     var id: String? = null
         private set
+
+    // "Test FirstName", "Test MiddleName", "Test Lastname", "Test Party", "Test State", "Test DisplayName", "Test id"
 
     constructor(firstName: String, middleName: String, lastName: String, party: String, state: String, id: String) {
         this.firstName = firstName
@@ -33,15 +37,26 @@ class OfficialOverview {
         this.state = congresspersonOverview.state
         this.displayName = buildDisplayName()
         this.id = congresspersonOverview.id
+
+
+
+
+
+
     }
 
     private fun buildDisplayName(): String {
         val nameBuilder = StringBuilder()
-        nameBuilder.append(firstName)
-        if (middleName != "null") {
-            nameBuilder.append(middleName).append(" ")
-        }
-        nameBuilder.append(lastName)
-        return nameBuilder.toString().toLowerCase()
+
+            nameBuilder.append("$firstName").append(" ")
+            if (middleName != "null") {
+                nameBuilder.append("$middleName").append(" ")
+            }
+            nameBuilder.append(lastName)
+            return nameBuilder.toString()
+
+
+
+
     }
 }

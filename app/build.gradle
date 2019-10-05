@@ -63,4 +63,9 @@ dependencies {
     //Assertion library
     testImplementation "org.amshove.kluent:kluent-android:1.56"
 
+    //Leak Canary
+    debugImplementation 'com.facebook.flipper:flipper-leakcanary-plugin:0.25.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
+
 }

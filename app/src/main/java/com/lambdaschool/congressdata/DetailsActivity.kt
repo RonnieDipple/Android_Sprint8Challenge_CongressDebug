@@ -15,6 +15,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+
+
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -71,10 +76,10 @@ class DetailsActivity : AppCompatActivity() {
         super.onStart()
 
         //Changed
-        viewModel.id = memberId 
+        viewModel.id = memberId
 
         viewModel.profile?.observe(this, Observer<CongresspersonProfile> { profile ->
-            runOnUiThread {
+
                 assert(profile != null)
                 profileImage!!.setImageBitmap(profile!!.image)
                 profileName!!.setText(profile!!.displayName)
@@ -112,7 +117,7 @@ class DetailsActivity : AppCompatActivity() {
                         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/search/" + profile!!.office)))
                     }
                 }
-            }
+
         })
         }
                 private fun getDefaultTextView(text: String): TextView {

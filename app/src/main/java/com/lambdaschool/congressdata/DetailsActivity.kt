@@ -20,7 +20,6 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 
 
-
 class DetailsActivity : AppCompatActivity() {
 
     private var context: Context? = null
@@ -80,51 +79,54 @@ class DetailsActivity : AppCompatActivity() {
 
         viewModel.profile?.observe(this, Observer<CongresspersonProfile> { profile ->
 
-                assert(profile != null)
-                profileImage!!.setImageBitmap(profile!!.image)
-                profileName!!.setText(profile!!.displayName)
-                profileParty!!.setText(profile!!.party)
-                profileDistrict!!.setText(profile!!.location)
-                profileTwitter!!.text = Html.fromHtml("<a href=\"https://twitter.com/" + profile!!.twitterAccount + "\">Twitter</a>")
-                profileFacebook!!.text = Html.fromHtml("<a href=\"https://www.facebook.com/" + profile!!.facebookAccount + "/\">Facebook</a>")
-                profileMap!!.text = Html.fromHtml("<a href=\"https://www.google.com/maps/search/" + profile!!.office.replace(" ", "-") + "\">Office</a>")
-                profilePhone!!.setText(profile!!.phone)
+            assert(profile != null)
+            profileImage!!.setImageBitmap(profile!!.image)
+            profileName!!.setText(profile.displayName)
+            profileParty!!.setText(profile.party)
+            profileDistrict!!.setText(profile.location)
+            profileTwitter!!.text = Html.fromHtml("<a href=\"https://twitter.com/" + profile.twitterAccount + "\">Twitter</a>")
+            profileFacebook!!.text = Html.fromHtml("<a href=\"https://www.facebook.com/" + profile.facebookAccount + "/\">Facebook</a>")
+            profileMap!!.text = Html.fromHtml("<a href=\"https://www.google.com/maps/search/" + profile.office.replace(" ", "-") + "\">Office</a>")
+            profilePhone!!.setText(profile.phone)
 
 
-                profileVotingBar!!.progress = profile!!.primaryProgress.toInt()
-                profileVotingBar!!.secondaryProgress = profile!!.secondaryProgress.toInt()
+            profileVotingBar!!.progress = profile.primaryProgress.toInt()
+            profileVotingBar!!.secondaryProgress = profile.secondaryProgress.toInt()
 
-                for (name in profile!!.committees!!) {
-                    profileCommitteeList!!.addView(getDefaultTextView(name))
-                }
+            for (name in profile.committees!!) {
+                profileCommitteeList!!.addView(getDefaultTextView(name))
+            }
 
-                for (name in profile!!.subcommittees!!) {
-                    profileSubcommitteeList!!.addView(getDefaultTextView(name))
-                }
+            for (name in profile.subcommittees!!) {
+                profileSubcommitteeList!!.addView(getDefaultTextView(name))
+            }
 
-                profileTwitter!!.setOnClickListener {
-                    if (profile!!.twitterAccount != "null") {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/" + profile!!.twitterAccount)))
-                    }
+            profileTwitter!!.setOnClickListener {
+                if (profile.twitterAccount != "null") {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/" + profile.twitterAccount)))
                 }
-                profileFacebook!!.setOnClickListener {
-                    if (profile!!.facebookAccount != "null") {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + profile!!.facebookAccount)))
-                    }
+            }
+            profileFacebook!!.setOnClickListener {
+                if (profile.facebookAccount != "null") {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + profile.facebookAccount)))
                 }
-                profileMap!!.setOnClickListener {
-                    if (profile!!.office != "null") {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/search/" + profile!!.office)))
-                    }
+            }
+            profileMap!!.setOnClickListener {
+                if (profile.office != "null") {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/search/" + profile.office)))
                 }
+            }
 
         })
-        }
-                private fun getDefaultTextView(text: String): TextView {
-            val dataView = TextView(context)
-            dataView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
-            dataView.setPadding(5, 5, 5, 5)
-            dataView.text = text
-            return dataView
-        }
+
+
     }
+
+    private fun getDefaultTextView(text: String): TextView {
+        val dataView = TextView(context)
+        dataView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+        dataView.setPadding(5, 5, 5, 5)
+        dataView.text = text
+        return dataView
+    }
+}

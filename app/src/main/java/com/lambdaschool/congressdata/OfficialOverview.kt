@@ -47,16 +47,7 @@ class OfficialOverview {
 
     private fun buildDisplayName(): String {
         val nameBuilder = StringBuilder()
-        val list = listOf(firstName, middleName, lastName, party, state, displayName, id)
-        for(a in list) {
 
-            /*
-            for extras
-            if(a == firstName && a.isNullOrBlank() || a.isNullOrEmpty()) {
-                throw IllegalArgumentException()
-            }
-            break*/
-        }
             nameBuilder.append("$firstName").append(" ")
             if (middleName != "null") {
                 nameBuilder.append("$middleName").append(" ")

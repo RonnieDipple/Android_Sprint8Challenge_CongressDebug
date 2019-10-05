@@ -13,32 +13,12 @@ import android.util.TypedValue
 import android.widget.TextView
 
 
-/*public class MainActivity extends LifecycleActivity  {
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ListView listView = (ListView) findViewById(R.id.list);
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.VISIBLE);
-        MainActivityViewModel model = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        model.getFruitList().observe(this, fruitlist -> {
-            // update UI
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_list_item_1, android.R.id.text1, fruitlist);
-            // Assign adapter to ListView
-            listView.setAdapter(adapter);
-            progressBar.setVisibility(View.GONE);
-        });
-    }
-}*/
 
 
 class MainActivity : AppCompatActivity() {
 
-    private var layoutList: androidx.recyclerview.widget.RecyclerView? = null
-    private var layoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager? = null
+    private var layoutList: RecyclerView? = null
+    private var layoutManager: RecyclerView.LayoutManager? = null
     private var listAdapter: OverviewListAdapter? = null
 
     private var context: Context? = null
@@ -55,11 +35,11 @@ class MainActivity : AppCompatActivity() {
         context = this
         layoutList = findViewById(R.id.layout_list)
         layoutList!!.setHasFixedSize(true)
-        layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+        layoutManager = LinearLayoutManager(context)
         layoutList!!.layoutManager = layoutManager
 
 
-        viewModel = ViewModelProviders.of(this).get(CongresspersonListViewModel::class.java!!)
+        viewModel = ViewModelProviders.of(this).get(CongresspersonListViewModel::class.java)
 
         viewModel.overviewList?.observe(this, Observer { overviewList ->
 

@@ -3,4 +3,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="congress_person">Congress Person</string>
+    <string name="trent_p_kelly">Trent P. Kelly</string>
+    <string name="republican">Republican</string>
+    <string name="mississippi_district_10">Mississippi - District 10</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="_1721_longworth_house_office_building">1721 Longworth House Office Building</string>
+    <string name="_202_225_4306">202-225-4306</string>
+    <string name="voting_record">Voting Record</string>
+    <string name="committees">Committees</string>
+    <string name="sub_committees">Sub Committees</string>
 </resources>

@@ -7,6 +7,7 @@
     tools:context=".DetailsActivity">
 
     <LinearLayout
+        android:baselineAligned="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -23,7 +24,7 @@
                 android:adjustViewBounds="true"
                 android:outlineProvider="bounds"
                 android:scaleType="centerInside"
-                android:contentDescription="Congress Person"
+                android:contentDescription="@string/congress_person"
                 android:src="@drawable/k000388" />
 
         </LinearLayout>
@@ -39,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Trent P. Kelly"
+                android:text="@string/trent_p_kelly"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -47,7 +48,7 @@
                 android:id="@+id/profile_party"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Republican"
+                android:text="@string/republican"
                 android:textSize="16sp"
                 android:textStyle="normal" />
 
@@ -55,7 +56,7 @@
                 android:id="@+id/profile_district"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mississippi - District 10"
+                android:text="@string/mississippi_district_10"
                 android:textSize="16sp"
                 android:textStyle="normal" />
 
@@ -74,7 +75,7 @@
                     android:id="@+id/profile_twitter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Twitter"
+                    android:text="@string/twitter"
                     android:textSize="16sp"
                     android:textStyle="normal" />
 
@@ -94,7 +95,7 @@
                     android:id="@+id/profile_facebook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Facebook"
+                    android:text="@string/facebook"
                     android:textSize="16sp"
                     android:textStyle="normal" />
 
@@ -108,7 +109,7 @@
                     android:id="@+id/profile_map"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1721 Longworth House Office Building"
+                    android:text="@string/_1721_longworth_house_office_building"
                     android:textSize="16sp"
                     android:textStyle="normal" />
 
@@ -127,14 +128,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/profile_phone"
+                    android:layout_toStartOf="@id/profile_phone"
                     android:background="@drawable/baseline_phone_white_18dp" />
 
                 <TextView
                     android:id="@+id/profile_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="202-225-4306"
+                    android:text="@string/_202_225_4306"
                     android:textSize="16sp"
                     android:textStyle="normal" />
 
@@ -158,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Voting Record"
+                android:text="@string/voting_record"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -184,14 +185,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Committees"
+                android:text="@string/committees"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey800"
                 android:padding="5dp">
 
                 <LinearLayout
@@ -216,14 +216,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Sub Committees"
+                android:text="@string/sub_committees"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey800"
                 android:padding="5dp">
 
                 <LinearLayout
